@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: sillytavern
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js --port $PORT
+    disk:
+      name: st-data
+      mountPath: /opt/render/project/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
